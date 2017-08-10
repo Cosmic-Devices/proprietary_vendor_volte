@@ -14,6 +14,9 @@
 
 LOCAL_PATH := $(call my-dir)
 
+# Stahp breaking build for non-YU devices ;-;
+ifeq ($(PRODUCT_MANUFACTURER),YU)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := parcel/Parcel.cpp
@@ -89,3 +92,5 @@ LOCAL_MODULE := libshims_ims
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+endif
